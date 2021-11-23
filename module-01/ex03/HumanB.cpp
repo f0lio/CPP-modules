@@ -17,10 +17,14 @@ void HumanB::setName(std::string n)
 
 void HumanB::setWeapon(Weapon w)
 {
-	_w = w;
+	_w = &w;
 }
 
-// void HumanB::attack()
-// {
-// 	std::cout << name << " attacks with his " << _w.getType() << std::endl;
-// }
+void HumanB::attack()
+{
+	if (_w)
+		std::cout << name << " attacks with his " << _w->getType() << std::endl;
+	else
+		std::cout << name << " attacks with his hands" << std::endl;
+
+}
