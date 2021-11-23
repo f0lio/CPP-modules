@@ -1,8 +1,8 @@
 
 NAME	= phonebook
-CC		= clang++
+CC		= clang++ --std=c++98
 FLAGS	= -Wall -Werror -Wextra
-SRCS 	= phonebook.cpp
+SRCS 	= main.cpp Contact.cpp Phonebook.cpp Utils.cpp
 
 $(NAME):
 	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
@@ -14,5 +14,9 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAME)
+	@rm -rf *.gch
 
 re: fclean all
+
+run: fclean all
+	@./$(NAME)
