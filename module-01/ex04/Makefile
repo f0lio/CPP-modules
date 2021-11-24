@@ -1,7 +1,7 @@
 
 NAME	= replace
-CC		= clang++ --std=c++98
-FLAGS	= #-Wall -Werror -Wextra
+CC		= clang++ --std=c++98 
+FLAGS	= -Wall -Werror -Wextra
 SRCS 	= main.cpp
 
 $(NAME): $(SRCS)
@@ -13,7 +13,7 @@ clean:
 	@rm -rf *.o
 
 fclean: clean
-	@rm -rf $(NAME) *.replace
+	@rm -rf $(NAME) *.replace *.dSYM
 
 re: fclean all
 
