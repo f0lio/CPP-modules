@@ -1,8 +1,8 @@
 
-NAME	= zombie
+NAME	= replace
 CC		= clang++ --std=c++98
-FLAGS	= -Wall -Werror -Wextra
-SRCS 	= main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+FLAGS	= #-Wall -Werror -Wextra
+SRCS 	= main.cpp
 
 $(NAME): $(SRCS)
 	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
@@ -13,7 +13,7 @@ clean:
 	@rm -rf *.o
 
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) *.replace
 
 re: fclean all
 

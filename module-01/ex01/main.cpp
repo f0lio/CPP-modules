@@ -8,9 +8,8 @@ int main()
 	for (size_t i = 0; i < 10; i++)
 		z[i].announce();
 	
-	std::cout << "Destroying zombies.." << std::endl;
-	for (size_t i = 0; i < 10; i++)
-		z[i].~Zombie();
-	
+	std::cout << "\nDestroying zombies.." << std::endl;
+	delete[] z;
+
 	return 0;
 }

@@ -4,7 +4,7 @@ CC		= clang++ --std=c++98
 FLAGS	= -Wall -Werror -Wextra
 SRCS 	= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
-$(NAME):
+$(NAME): $(SRCS)
 	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
 
 all: $(NAME)

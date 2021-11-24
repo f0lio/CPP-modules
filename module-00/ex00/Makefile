@@ -4,7 +4,7 @@ CC		= clang++
 FLAGS	= -Wall -Werror -Wextra
 SRCS 	= megaphone.cpp
 
-$(NAME):
+$(NAME): $(SRCS)
 	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
 
 all: $(NAME)
