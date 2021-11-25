@@ -1,6 +1,11 @@
 
 #include "Phonebook.class.hpp"
 
+Phonebook::Phonebook()
+{
+	_count = 0;
+}
+
 void Phonebook::printAllContacts()
 {
 	std::cout << std::endl;

@@ -20,6 +20,7 @@ class Phonebook
 		Contact contacts[CONTACTS_COUNT];
 		int	_count;
 	public:
+		Phonebook();
 		bool addContact(int index);
 		bool printOneContact();
 		void printAllContacts();

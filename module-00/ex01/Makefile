@@ -2,7 +2,7 @@
 NAME	= phonebook
 CC		= clang++ --std=c++98
 FLAGS	= -Wall -Werror -Wextra
-SRCS 	= main.cpp Contact.cpp Phonebook.cpp Utils.cpp
+SRCS 	= main.cpp Contact.cpp Phonebook.cpp utils.cpp
 
 $(NAME): $(SRCS)
 	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
