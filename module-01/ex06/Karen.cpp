@@ -7,22 +7,22 @@ Karen::~Karen() {}
 
 void Karen::debug(void)
 {
-	std::cout << "DEBUG: " << MSG_DEBUG << std::endl;
+	std::cout << MSG_DEBUG << std::endl;
 }
 
 void Karen::info(void)
 {
-	std::cout << "INFO : " << MSG_INFO << std::endl;	
+	std::cout << MSG_INFO << std::endl;	
 }
 
 void Karen::warning(void)
 {
-	std::cout << "WARN : " << MSG_WARN << std::endl;
+	std::cout << MSG_WARN << std::endl;
 }
 
 void Karen::error(void)
 {
-	std::cout << "ERROR: " << MSG_ERROR << std::endl;
+	std::cout << MSG_ERROR << std::endl;
 }
 
 void Karen::complain(std::string logging_level)
@@ -36,7 +36,10 @@ void Karen::complain(std::string logging_level)
 	short i;
 	for (i = 0; i < LEVELS_COUNT; i++)
 		if (levels[i] == logging_level)
+		{
+			std::cout << "[ " << logging_level << " ]" << std::endl;
 			break ;
+		}
 
 	switch (i)
 	{
@@ -48,7 +51,8 @@ void Karen::complain(std::string logging_level)
 			warning();
 		case 3:
 			error();
-		default:
 			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}	
 }
