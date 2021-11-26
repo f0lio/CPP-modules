@@ -17,5 +17,5 @@ void Weapon::setType(std::string t)
 
 std::string const & Weapon::getType()
 {
-	return type;	
+	return type;
 }

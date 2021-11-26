@@ -1,10 +1,9 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string n, Weapon & w)
+HumanA::HumanA(std::string n, Weapon & w) : wp(w)
 {
 	name = n;
-	_w = w;
 }
 
 HumanA::~HumanA() {}
@@ -16,10 +15,10 @@ void HumanA::setName(std::string n)
 
 void HumanA::setWeapon(std::string t)
 {
-	_w.setType(t);
+	wp.setType(t);
 }
 
 void HumanA::attack()
-{
-	std::cout << name << " attacks with his " << _w.getType() << std::endl;
+{	
+	std::cout << name << " attacks with his " << wp.getType() << std::endl;
 }
