@@ -15,7 +15,7 @@ Fixed::Fixed(const int x)
 Fixed::Fixed(const float f)
 {
 	PRINT("Float constructor called");
-	_fp = std::roundf(f * (1 << 8));
+	_fp = std::roundf(f * (1 << _frac_bits));
 }
 
 Fixed::~Fixed()
@@ -49,7 +49,7 @@ Fixed & Fixed::operator=(const Fixed & f)
 
 float Fixed::toFloat() const
 {
-	return ((float)_fp / (1 << 8));
+	return ((float)_fp / (1 << _frac_bits));
 }
 
 int Fixed::toInt() const
