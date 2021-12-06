@@ -112,9 +112,13 @@ Fixed Fixed::operator*(const Fixed & f) const
 
 Fixed Fixed::operator/(const Fixed & f) const
 {
-	if(f.toInt() > 0)
+	if(f.toInt() != 0)
 		return Fixed(this->toFloat() / f.toFloat());
-	else throw std::runtime_error("Cannot divide by zero");
+	else
+	{
+		PRINT("Error: Division by Zero");
+		return Fixed(this->toFloat());
+	}
 }
 
 Fixed & Fixed::operator++()
@@ -125,9 +129,9 @@ Fixed & Fixed::operator++()
 
 Fixed Fixed::operator++(int)
 {
-	Fixed fixed(*this);
+	Fixed f(*this);
 	++_fp;
-	return fixed;
+	return f;
 }
 
 Fixed & Fixed::min(Fixed & a, Fixed & b)
