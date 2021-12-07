@@ -80,7 +80,7 @@ bool Fixed::operator>=(const Fixed & f) const
 
 bool Fixed::operator<=(const Fixed & f) const
 {
-	return this->getRawBits() <= f.getRawBits();;
+	return this->getRawBits() <= f.getRawBits();
 }
 
 bool Fixed::operator==(const Fixed & f) const
@@ -127,10 +127,23 @@ Fixed & Fixed::operator++()
 	return *this;
 }
 
+Fixed & Fixed::operator--()
+{
+	this->_fp--;
+	return *this;
+}
+
 Fixed Fixed::operator++(int)
 {
 	Fixed f(*this);
 	++_fp;
+	return f;
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed f(*this);
+	--_fp;
 	return f;
 }
 
