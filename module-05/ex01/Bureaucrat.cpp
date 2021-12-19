@@ -7,7 +7,7 @@ Bureaucrat::Bureaucrat()
 
 Bureaucrat::Bureaucrat(const std::string & name, int grade) : name(name)
 {
-    PRINT("Param' Constructor()");
+    PRINT("Bureaucrat Param' Constructor()");
     if (grade > 150)
         throw GradeTooLowException();
     else if (grade < 1)
@@ -53,9 +53,18 @@ void Bureaucrat::increment()
 {
     grade--;
 }
+
 void Bureaucrat::decrement()
 {
     grade++;
+}
+
+void Bureaucrat::signForm(Form & f)
+{
+    f.setStatus(f.getSignGrade() >= grade);
+    PRINT(name << (f.getStatus() ? " signs " : " cannot sign ") 
+    << f.getName() << 
+    (f.getStatus() ?  "" :" because grade is too low!" ));
 }
 
 std::ostream & operator<<(std::ostream & ostream, Bureaucrat const & b)

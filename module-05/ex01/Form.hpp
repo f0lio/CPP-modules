@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 #define PRINT(X_X) std::cout << X_X << std::endl
 
 class Form
@@ -13,11 +15,16 @@ public:
     Form(std::string, int, int);
     Form(Form const &src);
     ~Form();
-     void signForm(const Form&);
     Form &operator=(Form const &rhs);
 
-    class GradeTooHighException : public std::exception
+	int getSignGrade() const;
+	int getExecutionGrade() const ;
+    int getStatus() const ;
+    void setStatus(bool) ;
 
+    const std::string & getName() const;
+
+    class GradeTooHighException : public std::exception
     {
         const char *what(void) const throw()
         {

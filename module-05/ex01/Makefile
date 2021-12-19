@@ -1,8 +1,8 @@
 
-NAME	= Bureaucrat
+NAME	= Form
 CC		= clang++ --std=c++98 
 FLAGS	= -Wall -Werror -Wextra
-SRCS 	= main.cpp  Bureaucrat.cpp
+SRCS 	= main.cpp  Bureaucrat.cpp Form.cpp
 
 $(NAME): $(SRCS)
 	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)

@@ -1,5 +1,4 @@
 
-
 #include "Bureaucrat.hpp"
 
 int main()
@@ -9,11 +8,7 @@ int main()
         Bureaucrat b("Name", 13);
         
         for (size_t i = 0; i < 200; i++)
-        {
-            /* code */
             b.decrement();
-        }
-        
 
         std::cout << b;
         std::cout << b;

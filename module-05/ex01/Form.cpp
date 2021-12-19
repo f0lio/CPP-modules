@@ -5,24 +5,28 @@ Form::Form()
     PRINT("Form Default Constructor()");
 }
 
-Form::Form(const std::string & name, int grade) : name(name)
+Form::Form  (std::string  name, int s_grade, int e_grade) : name(name)
 {
-    PRINT("Param' Constructor()");
-    if (grade > 150)
+    PRINT("Form Param' Constructor()");
+    if (s_grade > 150 || e_grade > 150)
         throw GradeTooLowException();
-    else if (grade < 1)
+    else if (s_grade < 1 || e_grade < 1)
         throw GradeTooHighException();
-    this->grade = grade;
+    this->s_grade = s_grade;
+    this->e_grade = e_grade;
+    status = false;
 }
 
 Form::Form(const Form &src) : name(src.name)
 {
     PRINT("Form Copy Constructor()");
-    if (grade > 150)
+    if (s_grade > 150 || e_grade > 150)
         throw GradeTooLowException();
-    else if (grade < 1)
+    else if (s_grade < 1 || e_grade < 1)
         throw GradeTooHighException();
-    grade = src.grade;
+    s_grade = src.s_grade;
+    e_grade = src.e_grade;
+    status = src.status;
 }
 
 Form::~Form()
@@ -35,7 +39,9 @@ Form & Form::operator=(Form const &rhs)
     PRINT("Form Assignment Operator");
     if (this != &rhs)
     {
-        grade = rhs.grade;
+        s_grade = rhs.s_grade;
+        e_grade = rhs.e_grade;
+        status =  rhs.status;
     }
     return *this;
 }
@@ -44,23 +50,33 @@ const std::string &Form::getName() const
 {
     return name;
 }
-int Form:: getGrade() const
+
+int Form::getSignGrade() const
 {
-    return grade;
+    return s_grade;
 }
 
-void Form::increment()
+int Form::getExecutionGrade() const 
 {
-    grade--;
+    return e_grade;
 }
-void Form::decrement()
+
+int Form::getStatus() const 
 {
-    grade++;
+    return status;
+}
+
+void Form::setStatus(bool st)
+{
+    this->status = st;
 }
 
 std::ostream & operator<<(std::ostream & ostream, Form const & b)
 {
+	ostream << "Form details: "  << std::endl;
 	ostream << "Name: "  << b.getName() << std::endl;
-	ostream << "Grade: " << b.getGrade() << std::endl;
+	ostream << "Grade: " << b.getSignGrade() << std::endl;
+	ostream << "Execution: " << b.getExecutionGrade() << std::endl;
+	ostream << "Status: " <<( b.getStatus() ? "signed" : "not signed")  << std::endl;
 	return ostream;
 }

@@ -2,8 +2,12 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
 
 #define PRINT(X_X) std::cout << X_X << std::endl
+
+
+class Form;
 
 class Bureaucrat
 {
@@ -20,6 +24,9 @@ public:
 
     void decrement();
     void increment();
+
+    void signForm(Form &);
+
 
     class GradeTooHighException : public std::exception
 
