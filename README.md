@@ -1,3 +1,3 @@
-# `C++ modules`
+# C++ Modules
 
-`Practicing Object Oriented Programming with C++`
+~ Practicing `Object Oriented Programming` with `C++` ~
