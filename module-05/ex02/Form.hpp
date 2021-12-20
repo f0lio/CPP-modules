@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 #define PRINT(X_X) std::cout << X_X << std::endl
 
 class Form
@@ -21,6 +23,7 @@ public:
     void setStatus(bool) ;
 
     const std::string & getName() const;
+    void beSigned(Bureaucrat &);
 
     class GradeTooHighException : public std::exception
     {
@@ -37,9 +40,16 @@ public:
             return "Grade is too Low";
         }
     };
+    
+    class NotSigned : public std::exception
+    {
+        const char *what(void) const throw()
+        {
+            return "Not Signed";
+        }
+    };
 
-
-private:
+protected:
     std::string name;
     int e_grade;
     int s_grade;

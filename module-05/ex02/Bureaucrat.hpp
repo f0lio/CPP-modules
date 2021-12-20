@@ -6,6 +6,7 @@
 
 #define PRINT(X_X) std::cout << X_X << std::endl
 
+
 class Form;
 
 class Bureaucrat
@@ -26,6 +27,7 @@ public:
 
     void signForm(Form &);
 
+    void executeForm(Form const & form);
 
     class GradeTooHighException : public std::exception
 

@@ -5,7 +5,7 @@ Bureaucrat::Bureaucrat()
     PRINT("Bureaucrat Default Constructor()");
 }
 
-Bureaucrat::Bureaucrat(const std::string & name, int grade) : name(name)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name)
 {
     PRINT("Bureaucrat Param' Constructor()");
     if (grade > 150)
@@ -30,7 +30,7 @@ Bureaucrat::~Bureaucrat()
     PRINT("Bureaucrat Default ~Destructor()");
 }
 
-Bureaucrat & Bureaucrat::operator=(Bureaucrat const &rhs)
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs)
 {
     PRINT("Bureaucrat Assignment Operator");
     if (this != &rhs)
@@ -44,7 +44,7 @@ const std::string &Bureaucrat::getName() const
 {
     return name;
 }
-int Bureaucrat:: getGrade() const
+int Bureaucrat::getGrade() const
 {
     return grade;
 }
@@ -59,17 +59,16 @@ void Bureaucrat::decrement()
     grade++;
 }
 
-void Bureaucrat::signForm(Form & f)
+void Bureaucrat::signForm(Form &f)
 {
     f.setStatus(f.getSignGrade() >= grade);
-    PRINT(name << (f.getStatus() ? " signs " : " cannot sign ") 
-    << f.getName() << 
-    (f.getStatus() ?  "" :" because grade is too low!" ));
+    PRINT(name << (f.getStatus() ? " signs " : " cannot sign ")
+               << f.getName() << (f.getStatus() ? "" : " because grade is too low!"));
 }
 
-std::ostream & operator<<(std::ostream & ostream, Bureaucrat const & b)
+std::ostream &operator<<(std::ostream &ostream, Bureaucrat const &b)
 {
-	ostream << "Name: "  << b.getName() << std::endl;
-	ostream << "Grade: " << b.getGrade() << std::endl;
-	return ostream;
+    ostream << "Name: " << b.getName() << std::endl;
+    ostream << "Grade: " << b.getGrade() << std::endl;
+    return ostream;
 }
