@@ -25,6 +25,8 @@ public:
     const std::string & getName() const;
     void beSigned(Bureaucrat &);
 
+    virtual void execute(Bureaucrat const & executor) = 0;
+
     class GradeTooHighException : public std::exception
     {
         const char *what(void) const throw()
@@ -40,7 +42,7 @@ public:
             return "Grade is too Low";
         }
     };
-    
+
     class NotSigned : public std::exception
     {
         const char *what(void) const throw()

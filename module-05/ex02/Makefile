@@ -1,5 +1,5 @@
 
-NAME	= Formzz
+NAME	= Formz
 CC		= clang++ --std=c++98 
 FLAGS	= -Wall -Werror -Wextra
 SRCS 	= main.cpp Bureaucrat.cpp Form.cpp\
