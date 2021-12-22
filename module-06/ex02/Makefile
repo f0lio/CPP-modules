@@ -1,8 +1,8 @@
 
-NAME	= convert
+NAME	= identify
 CC		= clang++ --std=c++98 
 FLAGS	= -Wall -Werror -Wextra
-SRCS 	= main.cpp
+SRCS 	= main.cpp Base.cpp A.cpp B.cpp C.cpp
 
 $(NAME): $(SRCS)
 	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)

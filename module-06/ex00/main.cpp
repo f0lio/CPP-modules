@@ -45,7 +45,7 @@ int main(int argc, char const *argv[])
             std::cout <<"Non displayable\n";
 
         std::cout << "int    : " << var << std::endl;
-       
+
         std::cout << "float  : " << std::fixed << std::setprecision(1)<< d << "f" << std::endl;
         std::cout << "double : " << d << std::endl;
         
